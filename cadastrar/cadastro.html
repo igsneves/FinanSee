@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastrar Usuário</title>
+  <!-- Importa seu CSS -->
+  <link rel="stylesheet" href="styleTelaCadastrar.css">
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+</head>
+<body>
+  <main class="Container">
+    <form>
+      <h1>Cadastrar</h1>
+
+      <div class="input-box">
+        <input id="usuario" placeholder="Email" type="email" required>
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+      </div>
+
+      <div class="input-box">
+        <input id="senha" placeholder="Senha" type="password" required>
+        <i id="toggleSenha" class="fa fa-eye" aria-hidden="true"></i>
+      </div>
+
+      <div class="input-box">
+        <input id="confirmSenha" placeholder="Confirmar Senha" type="password" required>
+        <i id="toggleConfirmar" class="fa fa-eye" aria-hidden="true"></i>
+      </div>
+
+      <div id="msgSuccess"></div>
+      <div id="msgError"></div>
+
+      <button type="button" class="login" onclick="cadastrar()">Cadastrar</button>
+    </form>
+  </main>
+
+  <script>
+    function togglePassword(inputId, iconId) {
+      const campo = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+
+      icon.addEventListener("click", () => {
+        if (campo.type === "password") {
+          campo.type = "text";
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+        } else {
+          campo.type = "password";
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+        }
+      });
+    }
+    togglePassword("senha", "toggleSenha");
+    togglePassword("confirmSenha", "toggleConfirmar");
+
+    function cadastrar(){
+      let usuario = document.querySelector('#usuario');
+      let senha = document.querySelector('#senha');
+      let confirmSenha = document.querySelector('#confirmSenha');
+      let msgSuccess = document.querySelector('#msgSuccess');
+      let msgError = document.querySelector('#msgError');
+
+      if(senha.value !== confirmSenha.value){
+        msgError.innerHTML = "As senhas não coincidem!";
+        msgError.style.color = "red";
+        return;
+      }
+
+      let listaUser = JSON.parse(localStorage.getItem('listaUser')) || [];
+
+      listaUser.push({
+        userCard: usuario.value,
+        senhaCard: senha.value
+      });
+
+      localStorage.setItem('listaUser', JSON.stringify(listaUser));
+
+      msgSuccess.innerHTML = "Usuário cadastrado com sucesso!";
+      msgSuccess.style.color = "green";
+
+      usuario.value = "";
+      senha.value = "";
+      confirmSenha.value = "";
+    }
+  </script>
+</body>
+</html>
+

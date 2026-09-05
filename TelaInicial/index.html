@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'rel='stylesheet'> 
+    <link rel="stylesheet" href="styleTelaInicial.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <title>FinanSee</title>
+</head>
+<body>
+    <main class="Container">
+        <form>
+            <h1>Login FinanSee</h1>
+            <div id="msgError"></div>
+            <div class="input-box">
+                <input type="text" id="usuario" placeholder="Email " required>
+                <label id="labelUsuario" for="usuario"></label>
+                <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+                <input placeholder="Senha" type="password" id="senha" required>
+                <label id="labelSenha" for="senha"> </label>
+                <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
+            </div>
+
+
+            <div class="remember-forgot">
+                <label>
+                <input type="checkbox">
+                Lembrar senha
+                </label>
+                <a href="#">Esqueci a senha</a>
+            </div>
+
+            <button type="submit" class="login" onclick="entrar(event)">Login</button>
+
+            <div class="register-link">
+                <p>Não tem uma conta ? <a href="../cadastrar/cadastro.html">Cadastre-se</a></p>
+            </div>
+        </form>
+    </main>
+    
+    <script>
+        let btn = document.querySelector('#verSenha')
+
+    btn.addEventListener('click', ()=>{
+        let inputSenha = document.querySelector('#senha')
+
+        if(inputSenha.getAttribute('type') === 'password'){
+            inputSenha.setAttribute('type', 'text')
+        } else {
+            inputSenha.setAttribute('type', 'password')
+        }
+    })
+
+    function entrar(event){
+        event.preventDefault();
+
+        let usuario = document.querySelector('#usuario');
+        let senha = document.querySelector('#senha');
+        let msgError = document.querySelector('#msgError');
+        let usuarioLabel = document.querySelector('#labelUsuario');
+        let senhaLabel = document.querySelector('#labelSenha');
+
+        if(usuario.value.trim() === "" || senha.value.trim() === ""){
+            msgError.innerHTML = "Preencha todos os campos!";
+            msgError.style.color = "red";
+            return;
+        }
+
+        let listaUser = JSON.parse(localStorage.getItem('listaUser')) || [];
+        let userValid = { user: '', senha: '' };
+
+        listaUser.forEach((item) => {
+            if(usuario.value === item.userCard && senha.value === item.senhaCard){
+            userValid = {
+                user: item.userCard,
+                senha: item.senhaCard
+            }
+            }
+        });
+
+        if(usuario.value === userValid.user && senha.value === userValid.senha){
+            alert("Login realizado com sucesso!");
+            window.location.href = "file:///C:/Users/igorn/OneDrive/%C3%81rea%20de%20Trabalho/Projeto_login/HomePgae/HomePage.html"
+        } else {
+            usuarioLabel.style.color = 'red';
+            usuario.style.borderColor = 'red';
+            senhaLabel.style.color = 'red';
+            senha.style.borderColor = 'red';
+            msgError.style.display = 'block';
+            msgError.style.color = 'red';
+            msgError.innerHTML = 'Usuário ou senha incorretos';
+            usuario.focus();
+        }
+        }
+    </script>
+</body>
+</html>
