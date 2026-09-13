@@ -25,14 +25,6 @@
             </div>
 
 
-            <div class="remember-forgot">
-                <label>
-                <input type="checkbox">
-                Lembrar senha
-                </label>
-                <a href="#">Esqueci a senha</a>
-            </div>
-
             <button type="submit" class="login" onclick="entrar(event)">Login</button>
 
             <div class="register-link">
@@ -83,7 +75,8 @@
 
         if(usuario.value === userValid.user && senha.value === userValid.senha){
             alert("Login realizado com sucesso!");
-            window.location.href = "file:///C:/Users/igorn/OneDrive/%C3%81rea%20de%20Trabalho/Projeto_login/HomePgae/HomePage.html"
+            localStorage.setItem("usuarioLogado", userValid.user);
+            window.location.href = "../HomePgae/HomePage.html";
         } else {
             usuarioLabel.style.color = 'red';
             usuario.style.borderColor = 'red';

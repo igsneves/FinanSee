@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contas - FinanSee</title>
+
+    <!-- CSS principal do menu -->
+    <link rel="stylesheet" href="HomePage.css">
+
+    <!-- CSS desta página -->
+    <link rel="stylesheet" href="contas.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- MENU LATERAL -->
+    <nav class="menu-lateral">
+
+        <div class="btn-expandir">
+            <i class="bi bi-list" id="btn-exp"></i>
+        </div>
+
+        <ul>
+
+            <li class="item-menu">
+                <a href="../HomePgae/HomePage.html">
+                    <span class="icon">
+                        <i class="bi bi-house"></i>
+                    </span>
+
+                    <span class="txt-link">
+                        Home
+                    </span>
+                </a>
+            </li>
+
+
+            <li class="item-menu ativo">
+                <a href="contas.html">
+                    <span class="icon">
+                        <i class="bi bi-bank"></i>
+                    </span>
+
+                    <span class="txt-link">
+                        Contas
+                    </span>
+                </a>
+            </li>
+
+
+            <li class="item-menu">
+                <a href="../planejamento/planejamento.html">
+                    <span class="icon">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </span>
+
+                    <span class="txt-link">
+                        Planejamento
+                    </span>
+                </a>
+            </li>
+
+
+            <li class="item-menu">
+                <a href="../guiaFinanceiro/guiaFinanceiro.html">
+                    <span class="icon">
+                        <i class="bi bi-clipboard"></i>
+                    </span>
+
+                    <span class="txt-link">
+                        Guia Financeiro
+                    </span>
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+
+    <main class="contas">
+
+        <!-- CABEÇALHO -->
+
+        <header class="cabecalho-contas">
+
+            <div>
+                <h1>Minhas Contas</h1>
+
+                <p>
+                    Acompanhe de onde vem e para onde vai o seu dinheiro.
+                </p>
+            </div>
+
+            <div class="mes-atual">
+                <i class="bi bi-calendar3"></i>
+                <span>SET 2026</span>
+            </div>
+
+        </header>
+
+
+        <!-- RESUMO -->
+
+        <section class="resumo-contas">
+
+            <div class="card-resumo">
+
+                <div class="icone-resumo saldo">
+                    <i class="bi bi-wallet2"></i>
+                </div>
+
+                <div>
+                    <span>Saldo</span>
+
+                    <strong id="saldoContas">
+                        R$ 0,00
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="card-resumo">
+
+                <div class="icone-resumo receita">
+                    <i class="bi bi-arrow-up-circle"></i>
+                </div>
+
+                <div>
+                    <span>Receitas</span>
+
+                    <strong id="totalReceitasContas">
+                        R$ 0,00
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="card-resumo">
+
+                <div class="icone-resumo despesa">
+                    <i class="bi bi-arrow-down-circle"></i>
+                </div>
+
+                <div>
+                    <span>Despesas</span>
+
+                    <strong id="totalDespesasContas">
+                        R$ 0,00
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ÁREA PRINCIPAL -->
+
+        <section class="area-analise">
+
+
+            <!-- PARA ONDE FOI -->
+
+            <div class="card-analise">
+
+                <div class="titulo-card">
+
+                    <div>
+                        <h2>Para onde foi meu dinheiro?</h2>
+
+                        <p>
+                            Veja como suas despesas foram distribuídas.
+                        </p>
+                    </div>
+
+                    <i class="bi bi-pie-chart"></i>
+
+                </div>
+
+
+                <!-- GRÁFICO -->
+
+                <div class="grafico-contas">
+
+                    <canvas id="graficoDespesasCategoria"></canvas>
+
+                </div>
+
+
+                <!-- CATEGORIAS -->
+
+                <div class="categorias">
+
+
+                    <div class="categoria">
+
+                        <div class="categoria-info">
+
+                            <span class="categoria-icone compras">
+                                <i class="bi bi-cart3"></i>
+                            </span>
+
+                            <div>
+                                <strong>Compras</strong>
+                                <small id="valorCompras">
+                                    R$ 0,00
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <span id="porcentagemCompras">
+                            0%
+                        </span>
+
+                    </div>
+
+
+                    <div class="barra">
+                        <span id="barraCompras"></span>
+                    </div>
+
+
+                    <div class="categoria">
+
+                        <div class="categoria-info">
+
+                            <span class="categoria-icone alimentacao">
+                                <i class="bi bi-egg-fried"></i>
+                            </span>
+
+                            <div>
+                                <strong>Alimentação</strong>
+                                <small id="valorAlimentacao">
+                                    R$ 0,00
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <span id="porcentagemAlimentacao">
+                            0%
+                        </span>
+
+                    </div>
+
+
+                    <div class="barra">
+                        <span id="barraAlimentacao"></span>
+                    </div>
+
+
+                    <div class="categoria">
+
+                        <div class="categoria-info">
+
+                            <span class="categoria-icone casa">
+                                <i class="bi bi-house"></i>
+                            </span>
+
+                            <div>
+                                <strong>Casa</strong>
+                                <small id="valorCasa">
+                                    R$ 0,00
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <span id="porcentagemCasa">
+                            0%
+                        </span>
+
+                    </div>
+
+
+                    <div class="barra">
+                        <span id="barraCasa"></span>
+                    </div>
+
+
+                    <div class="categoria">
+
+                        <div class="categoria-info">
+
+                            <span class="categoria-icone outros">
+                                <i class="bi bi-three-dots"></i>
+                            </span>
+
+                            <div>
+                                <strong>Outros</strong>
+                                <small id="valorOutros">
+                                    R$ 0,00
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <span id="porcentagemOutros">
+                            0%
+                        </span>
+
+                    </div>
+
+
+                    <div class="barra">
+                        <span id="barraOutros"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DE ONDE VEIO -->
+
+            <div class="card-analise">
+
+                <div class="titulo-card">
+
+                    <div>
+                        <h2>De onde veio meu dinheiro?</h2>
+
+                        <p>
+                            Veja a origem das suas receitas.
+                        </p>
+                    </div>
+
+                    <i class="bi bi-cash-stack"></i>
+
+                </div>
+
+
+                <!-- RECEITAS -->
+
+                <div class="lista-receitas">
+
+
+                    <div class="receita-item">
+
+                        <div class="receita-info">
+
+                            <span class="receita-icone salario">
+                                <i class="bi bi-briefcase"></i>
+                            </span>
+
+                            <div>
+                                <strong>Salário</strong>
+                                <small>
+                                    Receita mensal
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <strong id="valorSalario">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="receita-item">
+
+                        <div class="receita-info">
+
+                            <span class="receita-icone investimento">
+                                <i class="bi bi-graph-up"></i>
+                            </span>
+
+                            <div>
+                                <strong>Investimento</strong>
+                                <small>
+                                    Rendimentos
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <strong id="valorInvestimento">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="receita-item">
+
+                        <div class="receita-info">
+
+                            <span class="receita-icone pix">
+                                <i class="bi bi-lightning-charge"></i>
+                            </span>
+
+                            <div>
+                                <strong>Pix</strong>
+                                <small>
+                                    Transferências recebidas
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <strong id="valorPix">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="receita-item">
+
+                        <div class="receita-info">
+
+                            <span class="receita-icone outros">
+                                <i class="bi bi-three-dots"></i>
+                            </span>
+
+                            <div>
+                                <strong>Outros</strong>
+                                <small>
+                                    Outras receitas
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <strong id="valorOutrasReceitas">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOTAL -->
+
+                <div class="total-receitas">
+
+                    <span>
+                        Total de receitas
+                    </span>
+
+                    <strong id="totalReceitasCategoria">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DICA -->
+
+        <section class="dica-financeira">
+
+            <div class="dica-icone">
+                <i class="bi bi-lightbulb"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Dica financeira
+                </h3>
+
+                <p>
+                    Acompanhar para onde seu dinheiro está indo ajuda
+                    a identificar gastos desnecessários e facilita o
+                    planejamento dos seus próximos meses.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="menu.js"></script>
+    <script src="contas.js"></script>
+
+</body>
+
+</html>
+
