@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Guia Financeiro - FinanSee</title>
+
+
+    <!-- CSS PRINCIPAL -->
+    <link
+        rel="stylesheet"
+        href="../HomePgae/HomePage.css"
+    >
+
+    <!-- CSS DO GUIA -->
+    <link
+        rel="stylesheet"
+        href="guiaFinanceiro.css"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MENU LATERAL
+    ====================================================== -->
+
+    <nav class="menu-lateral">
+
+        <div class="btn-expandir">
+
+            <i
+                class="bi bi-list"
+                id="btn-exp"
+            ></i>
+
+        </div>
+
+
+        <ul>
+
+
+            <!-- HOME -->
+
+            <li class="item-menu">
+
+                <a href="../HomePgae/HomePage.html">
+
+                    <span class="icon">
+                        <i class="bi bi-house"></i>
+                    </span>
+
+                    <span class="txt-link">
+                        Home
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- CONTAS -->
+
+            <li class="item-menu">
+
+                <a href="../contas/contas.html">
+
+                    <span class="icon">
+                        <i class="bi bi-bank"></i>
+                    </span>
+
+                    <span class="txt-link">
+                        Contas
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- PLANEJAMENTO -->
+
+            <li class="item-menu">
+
+                <a href="../planejamento/planejamento.html">
+
+                    <span class="icon">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </span>
+
+                    <span class="txt-link">
+                        Planejamento
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- GUIA FINANCEIRO -->
+
+            <li class="item-menu ativo">
+
+                <a href="guiaFinanceiro.html">
+
+                    <span class="icon">
+                        <i class="bi bi-clipboard"></i>
+                    </span>
+
+                    <span class="txt-link">
+                        Guia Financeiro
+                    </span>
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="guia">
+
+
+        <!-- =================================================
+             CABEÇALHO
+        ================================================== -->
+
+        <section class="guia-header">
+
+            <div class="header-texto">
+
+                <span class="tag">
+                    EDUCAÇÃO FINANCEIRA
+                </span>
+
+                <h1>
+                    Guia Financeiro
+                </h1>
+
+                <p>
+                    Aprenda a cuidar melhor do seu dinheiro,
+                    organizar suas finanças e tomar decisões
+                    financeiras mais conscientes.
+                </p>
+
+            </div>
+
+
+            <!-- Ilustração -->
+
+            <div class="ilustracao-header">
+
+                <svg
+                    viewBox="0 0 300 220"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+
+                    <rect
+                        x="40"
+                        y="45"
+                        width="220"
+                        height="140"
+                        rx="20"
+                        fill="#f0f8ff"
+                    />
+
+                    <rect
+                        x="75"
+                        y="85"
+                        width="150"
+                        height="70"
+                        rx="12"
+                        fill="#00aeff"
+                    />
+
+                    <circle
+                        cx="150"
+                        cy="120"
+                        r="24"
+                        fill="white"
+                    />
+
+                    <text
+                        x="150"
+                        y="130"
+                        text-anchor="middle"
+                        font-size="25"
+                        font-weight="bold"
+                        fill="#00aeff"
+                    >
+                        R$
+                    </text>
+
+                    <circle
+                        cx="230"
+                        cy="55"
+                        r="25"
+                        fill="#dff5ff"
+                    />
+
+                    <text
+                        x="230"
+                        y="64"
+                        text-anchor="middle"
+                        font-size="24"
+                    >
+                        ↑
+                    </text>
+
+                </svg>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             INTRODUÇÃO
+        ================================================== -->
+
+        <section class="conteudo-card">
+
+            <div class="icone-card">
+                <i class="bi bi-lightbulb"></i>
+            </div>
+
+            <div>
+
+                <h2>
+                    Por que cuidar das suas finanças?
+                </h2>
+
+                <p>
+                    Educação financeira é o conhecimento necessário
+                    para entender como o dinheiro entra, como ele é
+                    utilizado e como pode ser planejado.
+                </p>
+
+                <p>
+                    Ter uma boa organização financeira ajuda a evitar
+                    gastos desnecessários, estabelecer objetivos e
+                    tomar decisões com mais segurança.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ORGANIZAÇÃO
+        ================================================== -->
+
+        <section class="guia-grid">
+
+
+            <article class="topico-card">
+
+                <div class="topico-ilustracao">
+
+                    <svg viewBox="0 0 180 140">
+
+                        <rect
+                            x="40"
+                            y="20"
+                            width="100"
+                            height="105"
+                            rx="10"
+                            fill="#f1f8ff"
+                        />
+
+                        <rect
+                            x="60"
+                            y="45"
+                            width="60"
+                            height="7"
+                            rx="3"
+                            fill="#00aeff"
+                        />
+
+                        <rect
+                            x="60"
+                            y="65"
+                            width="45"
+                            height="7"
+                            rx="3"
+                            fill="#9bdcff"
+                        />
+
+                        <rect
+                            x="60"
+                            y="85"
+                            width="55"
+                            height="7"
+                            rx="3"
+                            fill="#9bdcff"
+                        />
+
+                        <circle
+                            cx="72"
+                            cy="108"
+                            r="6"
+                            fill="#00aeff"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <span class="numero">
+                    01
+                </span>
+
+                <h2>
+                    Organize seu dinheiro
+                </h2>
+
+                <p>
+                    O primeiro passo para melhorar sua vida financeira
+                    é saber exatamente quanto você recebe e quanto
+                    gasta.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Anote suas receitas.
+                    </li>
+
+                    <li>
+                        Registre suas despesas.
+                    </li>
+
+                    <li>
+                        Separe gastos fixos e variáveis.
+                    </li>
+
+                    <li>
+                        Acompanhe seu saldo regularmente.
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+
+            <!-- ORÇAMENTO -->
+
+            <article class="topico-card">
+
+                <div class="topico-ilustracao">
+
+                    <svg viewBox="0 0 180 140">
+
+                        <rect
+                            x="35"
+                            y="85"
+                            width="25"
+                            height="35"
+                            rx="5"
+                            fill="#bdeaff"
+                        />
+
+                        <rect
+                            x="75"
+                            y="60"
+                            width="25"
+                            height="60"
+                            rx="5"
+                            fill="#63caff"
+                        />
+
+                        <rect
+                            x="115"
+                            y="35"
+                            width="25"
+                            height="85"
+                            rx="5"
+                            fill="#00aeff"
+                        />
+
+                        <polyline
+                            points="35,70 75,45 115,55 145,25"
+                            fill="none"
+                            stroke="#222"
+                            stroke-width="4"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <span class="numero">
+                    02
+                </span>
+
+                <h2>
+                    Faça um orçamento
+                </h2>
+
+                <p>
+                    Um orçamento permite definir limites para seus
+                    gastos e entender quanto pode ser destinado aos
+                    seus objetivos.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Liste suas despesas essenciais.
+                    </li>
+
+                    <li>
+                        Defina limites para gastos.
+                    </li>
+
+                    <li>
+                        Reserve uma parte da renda.
+                    </li>
+
+                    <li>
+                        Revise seu orçamento mensalmente.
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+
+            <!-- RESERVA -->
+
+            <article class="topico-card">
+
+                <div class="topico-ilustracao">
+
+                    <svg viewBox="0 0 180 140">
+
+                        <rect
+                            x="45"
+                            y="45"
+                            width="90"
+                            height="65"
+                            rx="12"
+                            fill="#00aeff"
+                        />
+
+                        <path
+                            d="M55 45 V35 Q55 20 70 20 H110 Q125 20 125 35 V45"
+                            fill="none"
+                            stroke="#222"
+                            stroke-width="7"
+                        />
+
+                        <circle
+                            cx="90"
+                            cy="77"
+                            r="18"
+                            fill="white"
+                        />
+
+                        <text
+                            x="90"
+                            y="86"
+                            text-anchor="middle"
+                            font-size="20"
+                            font-weight="bold"
+                            fill="#00aeff"
+                        >
+                            R$
+                        </text>
+
+                    </svg>
+
+                </div>
+
+
+                <span class="numero">
+                    03
+                </span>
+
+                <h2>
+                    Crie uma reserva
+                </h2>
+
+                <p>
+                    Uma reserva financeira pode ajudar a lidar com
+                    imprevistos sem precisar recorrer imediatamente
+                    a empréstimos ou outras formas de dívida.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Comece com valores que cabem no orçamento.
+                    </li>
+
+                    <li>
+                        Faça contribuições regularmente.
+                    </li>
+
+                    <li>
+                        Mantenha o dinheiro acessível.
+                    </li>
+
+                    <li>
+                        Use a reserva para situações realmente
+                        necessárias.
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+
+            <!-- CARTÃO -->
+
+            <article class="topico-card">
+
+                <div class="topico-ilustracao">
+
+                    <svg viewBox="0 0 180 140">
+
+                        <rect
+                            x="25"
+                            y="35"
+                            width="130"
+                            height="80"
+                            rx="12"
+                            fill="#00aeff"
+                        />
+
+                        <rect
+                            x="25"
+                            y="55"
+                            width="130"
+                            height="15"
+                            fill="#222"
+                        />
+
+                        <rect
+                            x="45"
+                            y="88"
+                            width="45"
+                            height="8"
+                            rx="3"
+                            fill="white"
+                        />
+
+                        <circle
+                            cx="125"
+                            cy="92"
+                            r="10"
+                            fill="white"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <span class="numero">
+                    04
+                </span>
+
+                <h2>
+                    Use o cartão com consciência
+                </h2>
+
+                <p>
+                    O cartão de crédito pode ser uma ferramenta útil,
+                    mas é importante lembrar que uma compra parcelada
+                    continua comprometendo sua renda futura.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Acompanhe sua fatura.
+                    </li>
+
+                    <li>
+                        Evite comprometer todo o limite.
+                    </li>
+
+                    <li>
+                        Planeje compras parceladas.
+                    </li>
+
+                    <li>
+                        Priorize o pagamento integral da fatura.
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+
+            <!-- INVESTIMENTOS -->
+
+            <article class="topico-card">
+
+                <div class="topico-ilustracao">
+
+                    <svg viewBox="0 0 180 140">
+
+                        <polyline
+                            points="25,110 60,80 85,95 115,55 150,30"
+                            fill="none"
+                            stroke="#00aeff"
+                            stroke-width="7"
+                        />
+
+                        <circle
+                            cx="60"
+                            cy="80"
+                            r="6"
+                            fill="#222"
+                        />
+
+                        <circle
+                            cx="85"
+                            cy="95"
+                            r="6"
+                            fill="#222"
+                        />
+
+                        <circle
+                            cx="115"
+                            cy="55"
+                            r="6"
+                            fill="#222"
+                        />
+
+                        <circle
+                            cx="150"
+                            cy="30"
+                            r="6"
+                            fill="#222"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <span class="numero">
+                    05
+                </span>
+
+                <h2>
+                    Comece a investir
+                </h2>
+
+                <p>
+                    Depois de organizar o orçamento e construir uma
+                    reserva adequada, você pode estudar investimentos
+                    de acordo com seus objetivos e seu perfil.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Conheça seu objetivo.
+                    </li>
+
+                    <li>
+                        Entenda os riscos.
+                    </li>
+
+                    <li>
+                        Compare produtos financeiros.
+                    </li>
+
+                    <li>
+                        Evite investir apenas porque alguém recomendou.
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+
+            <!-- DÍVIDAS -->
+
+            <article class="topico-card">
+
+                <div class="topico-ilustracao">
+
+                    <svg viewBox="0 0 180 140">
+
+                        <circle
+                            cx="90"
+                            cy="70"
+                            r="48"
+                            fill="#f1f8ff"
+                        />
+
+                        <text
+                            x="90"
+                            y="82"
+                            text-anchor="middle"
+                            font-size="55"
+                            font-weight="bold"
+                            fill="#00aeff"
+                        >
+                            !
+                        </text>
+
+                    </svg>
+
+                </div>
+
+
+                <span class="numero">
+                    06
+                </span>
+
+                <h2>
+                    Cuidado com dívidas
+                </h2>
+
+                <p>
+                    Dívidas podem comprometer uma parte significativa
+                    da renda. Por isso, é importante conhecer as
+                    condições antes de contratar crédito.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Conheça os juros envolvidos.
+                    </li>
+
+                    <li>
+                        Evite atrasar pagamentos.
+                    </li>
+
+                    <li>
+                        Não acumule parcelas sem planejamento.
+                    </li>
+
+                    <li>
+                        Priorize a organização financeira.
+                    </li>
+
+                </ul>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REGRA PRÁTICA
+        ================================================== -->
+
+        <section class="regra-card">
+
+            <div class="regra-icone">
+
+                <i class="bi bi-piggy-bank"></i>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    UMA BOA PRÁTICA
+                </span>
+
+                <h2>
+                    Antes de gastar, planeje.
+                </h2>
+
+                <p>
+                    Pergunte a si mesmo se aquela compra é realmente
+                    necessária, se ela cabe no seu orçamento e se
+                    está de acordo com seus objetivos financeiros.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             OBJETIVOS
+        ================================================== -->
+
+        <section class="objetivos">
+
+            <h2>
+                Transforme seus objetivos em planos
+            </h2>
+
+            <p>
+                Definir objetivos torna mais fácil entender por que
+                você está economizando e ajuda a manter a disciplina
+                financeira.
+            </p>
+
+
+            <div class="objetivos-grid">
+
+                <div class="objetivo">
+
+                    <i class="bi bi-phone"></i>
+
+                    <h3>
+                        Curto prazo
+                    </h3>
+
+                    <p>
+                        Objetivos que podem ser alcançados em alguns
+                        meses, como uma compra planejada.
+                    </p>
+
+                </div>
+
+
+                <div class="objetivo">
+
+                    <i class="bi bi-car-front"></i>
+
+                    <h3>
+                        Médio prazo
+                    </h3>
+
+                    <p>
+                        Objetivos que exigem mais planejamento, como
+                        uma viagem ou aquisição de um bem.
+                    </p>
+
+                </div>
+
+
+                <div class="objetivo">
+
+                    <i class="bi bi-house"></i>
+
+                    <h3>
+                        Longo prazo
+                    </h3>
+
+                    <p>
+                        Objetivos maiores que podem exigir anos de
+                        planejamento e disciplina.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FINAL
+        ================================================== -->
+
+        <section class="final-guia">
+
+            <i class="bi bi-check-circle"></i>
+
+            <h2>
+                Organização financeira começa com pequenos hábitos.
+            </h2>
+
+            <p>
+                Registre seus gastos, acompanhe seu orçamento e
+                utilize o FinanSee para visualizar melhor sua
+                evolução financeira.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- JavaScript do menu -->
+
+    <script src="../HomePgae/menu.js"></script>
+
+</body>
+
+</html>

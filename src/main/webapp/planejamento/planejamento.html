@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Planejamento Financeiro - FinanSee</title>
+
+
+    <!-- CSS DO MENU -->
+    <link
+        rel="stylesheet"
+        href="../HomePgae/HomePage.css"
+    >
+
+    <!-- CSS DO PLANEJAMENTO -->
+    <link
+        rel="stylesheet"
+        href="planejamento.css"
+    >
+
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MENU LATERAL
+    ====================================================== -->
+
+    <nav class="menu-lateral">
+
+        <div class="btn-expandir">
+
+            <i
+                class="bi bi-list"
+                id="btn-exp"
+            ></i>
+
+        </div>
+
+
+        <ul>
+
+
+            <!-- HOME -->
+
+            <li class="item-menu">
+
+                <a href="../HomePgae/HomePage.html">
+
+                    <span class="icon">
+
+                        <i class="bi bi-house"></i>
+
+                    </span>
+
+                    <span class="txt-link">
+
+                        Home
+
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- CONTAS -->
+
+            <li class="item-menu">
+
+                <a href="../contas/contas.html">
+
+                    <span class="icon">
+
+                        <i class="bi bi-bank"></i>
+
+                    </span>
+
+                    <span class="txt-link">
+
+                        Contas
+
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- PLANEJAMENTO -->
+
+            <li class="item-menu ativo">
+
+                <a href="planejamento.html">
+
+                    <span class="icon">
+
+                        <i class="bi bi-graph-up-arrow"></i>
+
+                    </span>
+
+                    <span class="txt-link">
+
+                        Planejamento
+
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- GUIA FINANCEIRO -->
+
+            <li class="item-menu">
+
+                <a href="../guiaFinanceiro/guiaFinanceiro.html">
+
+                    <span class="icon">
+
+                        <i class="bi bi-clipboard"></i>
+
+                    </span>
+
+                    <span class="txt-link">
+
+                        Guia Financeiro
+
+                    </span>
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO DO PLANEJAMENTO
+    ====================================================== -->
+
+    <main class="planejamento">
+
+
+        <section class="grafico-container">
+
+
+            <h1>
+                Evolução financeira
+            </h1>
+
+
+            <p class="descricao-grafico">
+
+                Acompanhe a evolução do seu saldo ao longo dos meses.
+
+            </p>
+
+
+            <div class="grafico-evolucao">
+
+                <canvas
+                    id="graficoEvolucao"
+                ></canvas>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../HomePgae/menu.js"></script>
+
+    <script src="planejamento.js"></script>
+
+
+</body>
+
+</html>

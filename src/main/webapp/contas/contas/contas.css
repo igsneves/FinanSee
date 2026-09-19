@@ -1,0 +1,773 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =====================================================
+   MENU LATERAL
+===================================================== */
+
+
+nav.menu-lateral{
+    width: 80px;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    padding: 40px 0 40px 1%;
+    box-shadow: 3px 0 0 #00aeff;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+
+/* MENU EXPANDIDO */
+
+nav.menu-lateral.expandir{
+    width: 300px;
+}
+
+/* BOTÃO DE EXPANDIR */
+
+.btn-expandir {
+    width: 100%;
+    padding-left: 10px;
+
+    margin-bottom: 30px;
+}
+
+.btn-expandir > i {
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+
+/* LISTA DO MENU */
+
+nav.menu-lateral ul {
+    list-style-type: none;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+
+/* ITENS */
+
+nav.menu-lateral ul li.item-menu {
+    transition: .3s;
+}
+
+
+/* ITEM ATIVO */
+
+nav.menu-lateral ul li.ativo {
+    background-color: #00aeff;
+
+}
+
+
+/* LINK */
+
+nav.menu-lateral ul li.item-menu a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    padding: 15px 4%;
+
+    display: flex;
+
+    align-items: center;
+
+    margin-bottom: 10px;
+
+    line-height: 60px;
+
+    white-space: nowrap;
+}
+
+
+/* ÍCONE */
+
+nav.menu-lateral .icon {
+    min-width: 40px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+nav.menu-lateral .icon > i {
+    font-size: 30px;
+}
+
+
+/* TEXTO */
+
+nav.menu-lateral .txt-link {
+    margin-left: 10px;
+
+    opacity: 0;
+
+    transition: .3s;
+}
+
+
+/* TEXTO QUANDO EXPANDIDO */
+
+nav.menu-lateral.expandir .txt-link {
+    opacity: 1;
+}
+
+
+/* HOVER */
+
+nav.menu-lateral ul li.item-menu:hover {
+    background-color: #00aeff;
+
+}
+
+
+/* =====================================================
+   CONTEÚDO PRINCIPAL
+===================================================== */
+
+.contas {
+    margin-left: 80px;
+
+    width: calc(100% - 80px);
+
+    min-height: 100vh;
+
+    padding: 40px;
+
+    background-color: #f5f7fa;
+
+    transition: .5s;
+}
+
+
+/* QUANDO MENU ESTIVER ABERTO */
+
+.menu-lateral.expandir ~ .contas {
+    margin-left: 300px;
+
+    width: calc(100% - 300px);
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.cabecalho-contas {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.cabecalho-contas h1 {
+    margin: 0 0 8px;
+
+    font-size: 30px;
+
+    color: #222;
+}
+
+.cabecalho-contas p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   MÊS
+===================================================== */
+
+.mes-atual {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 18px;
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    color: #555;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.mes-atual i {
+    color: #00aeff;
+}
+
+
+/* =====================================================
+   CARDS DE RESUMO
+===================================================== */
+
+.resumo-contas {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.card-resumo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 22px;
+
+    background-color: white;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.card-resumo span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 14px;
+
+    color: #777;
+}
+
+.card-resumo strong {
+    display: block;
+
+    font-size: 23px;
+
+    color: #222;
+}
+
+
+/* =====================================================
+   ÍCONES DO RESUMO
+===================================================== */
+
+.icone-resumo {
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    font-size: 23px;
+}
+
+.icone-resumo.saldo {
+    background-color: #e8f7ff;
+
+    color: #00aeff;
+}
+
+.icone-resumo.receita {
+    background-color: #e8fff1;
+
+    color: #19a85b;
+}
+
+.icone-resumo.despesa {
+    background-color: #fff0f0;
+
+    color: #e74c3c;
+}
+
+
+/* =====================================================
+   ÁREA DE ANÁLISE
+===================================================== */
+
+.area-analise {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card-analise {
+    background-color: white;
+
+    padding: 28px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =====================================================
+   TÍTULO DOS CARDS
+===================================================== */
+
+.titulo-card {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 20px;
+}
+
+.titulo-card h2 {
+    margin: 0 0 6px;
+
+    font-size: 20px;
+
+    color: #222;
+}
+
+.titulo-card p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #888;
+}
+
+.titulo-card > i {
+    font-size: 25px;
+
+    color: #00aeff;
+}
+
+
+/* =====================================================
+   GRÁFICO
+===================================================== */
+
+.grafico-contas {
+    width: 100%;
+
+    height: 230px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   CATEGORIAS
+===================================================== */
+
+.categorias {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.categoria {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 8px;
+}
+
+.categoria-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.categoria-info strong {
+    display: block;
+
+    font-size: 14px;
+
+    color: #333;
+}
+
+.categoria-info small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+.categoria > span:last-child {
+    font-size: 13px;
+
+    font-weight: bold;
+
+    color: #555;
+}
+
+
+/* =====================================================
+   ÍCONES DAS CATEGORIAS
+===================================================== */
+
+.categoria-icone {
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+}
+
+.categoria-icone.compras {
+    background-color: #fff2df;
+
+    color: #e88a00;
+}
+
+.categoria-icone.alimentacao {
+    background-color: #ffe9ed;
+
+    color: #e94b67;
+}
+
+.categoria-icone.casa {
+    background-color: #e8f3ff;
+
+    color: #2585d9;
+}
+
+.categoria-icone.outros {
+    background-color: #eeeeee;
+
+    color: #666;
+}
+
+
+/* =====================================================
+   BARRAS
+===================================================== */
+
+.barra {
+    width: 100%;
+
+    height: 6px;
+
+    margin-bottom: 5px;
+
+    background-color: #eeeeee;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.barra span {
+    display: block;
+
+    height: 100%;
+
+    width: 0%;
+
+    background-color: #00aeff;
+
+    border-radius: 10px;
+
+    transition: width .5s;
+}
+
+
+/* =====================================================
+   RECEITAS
+===================================================== */
+
+.lista-receitas {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.receita-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 15px 5px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.receita-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.receita-info strong {
+    display: block;
+
+    font-size: 14px;
+
+    color: #333;
+}
+
+.receita-info small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+.receita-item > strong {
+    color: #19a85b;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   ÍCONES DAS RECEITAS
+===================================================== */
+
+.receita-icone {
+    width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+}
+
+.receita-icone.salario {
+    background-color: #e8fff1;
+
+    color: #19a85b;
+}
+
+.receita-icone.investimento {
+    background-color: #e8f3ff;
+
+    color: #2585d9;
+}
+
+.receita-icone.pix {
+    background-color: #eee8ff;
+
+    color: #7a4dcc;
+}
+
+.receita-icone.outros {
+    background-color: #eeeeee;
+
+    color: #666;
+}
+
+
+/* =====================================================
+   TOTAL DE RECEITAS
+===================================================== */
+
+.total-receitas {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    padding-top: 18px;
+
+    border-top: 2px solid #eeeeee;
+}
+
+.total-receitas span {
+    font-size: 14px;
+
+    color: #555;
+}
+
+.total-receitas strong {
+    font-size: 19px;
+
+    color: #19a85b;
+}
+
+
+/* =====================================================
+   DICA FINANCEIRA
+===================================================== */
+
+.dica-financeira {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 25px;
+
+    padding: 22px 25px;
+
+    background-color: #eaf7ff;
+
+    border-left: 4px solid #00aeff;
+
+    border-radius: 12px;
+}
+
+.dica-icone {
+    width: 45px;
+
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background-color: #00aeff;
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+}
+
+.dica-financeira h3 {
+    margin: 0 0 5px;
+
+    color: #222;
+
+    font-size: 16px;
+}
+
+.dica-financeira p {
+    margin: 0;
+
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .area-analise {
+        grid-template-columns: 1fr;
+    }
+
+    .resumo-contas {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .contas {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 25px 15px;
+    }
+
+    .menu-lateral.expandir ~ .contas {
+        margin-left: 0;
+
+        width: 100%;
+    }
+
+    .cabecalho-contas {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+}
+

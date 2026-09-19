@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FinanSee</title>
+
+    <!-- CSS PRINCIPAL -->
+    <link
+        rel="stylesheet"
+        href="HomePage.css"
+    >
+
+    <!-- BOOTSTRAP ICONS -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MENU LATERAL
+    ====================================================== -->
+
+    <nav class="menu-lateral">
+
+        <div class="btn-expandir">
+
+            <i
+                class="bi bi-list"
+                id="btn-exp"
+            ></i>
+
+        </div>
+
+
+        <ul>
+
+
+            <!-- =================================================
+                 BOTÃO ADICIONAR
+            ================================================== -->
+
+            <li class="botao_ad">
+
+                <button onclick="showModal()">
+
+                    <i class="bi bi-plus-lg"></i>
+
+                    <span></span>
+
+                </button>
+
+
+                <!-- MODAL DE ESCOLHA -->
+
+                <div
+                    class="modal"
+                    id="modal"
+                >
+
+                    <div class="modal-content">
+
+                        <button
+                            class="modal-fechar"
+                            onclick="hideModal()"
+                        >
+                            &times;
+                        </button>
+
+                        <div class="modal-header">
+
+                            <div class="modal-icon">
+
+                                <i class="bi bi-plus-lg"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h2>Nova movimentação</h2>
+
+                                <p>
+                                    O que você deseja adicionar?
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="modal-opcoes">
+
+                            <button
+                                class="opcao-modal receita-opcao"
+                                id="btn_NovaReceita"
+                            >
+
+                                <span class="opcao-icon">
+
+                                    <i class="bi bi-arrow-down-left"></i>
+
+                                </span>
+
+                                <span>
+
+                                    <strong>Nova Receita</strong>
+
+                                    <small>
+                                        Adicionar uma entrada
+                                    </small>
+
+                                </span>
+
+                                <i class="bi bi-chevron-right"></i>
+
+                            </button>
+
+
+                            <button
+                                class="opcao-modal despesa-opcao"
+                                id="btn_NovaDespesa"
+                            >
+
+                                <span class="opcao-icon">
+
+                                    <i class="bi bi-arrow-up-right"></i>
+
+                                </span>
+
+                                <span>
+
+                                    <strong>Nova Despesa</strong>
+
+                                    <small>
+                                        Adicionar uma saída
+                                    </small>
+
+                                </span>
+
+                                <i class="bi bi-chevron-right"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </li>
+
+
+
+            <!-- =================================================
+                 MODAL NOVA RECEITA
+            ================================================== -->
+
+            <div
+                class="modal"
+                id="modalReceita"
+            >
+
+                <div class="modal-content">
+
+                    <button
+                        class="modal-fechar"
+                        onclick="hideModal('modalReceita')"
+                    >
+                        &times;
+                    </button>
+
+
+                    <div class="modal-header">
+
+                        <div class="modal-icon receita-icon">
+
+                            <i class="bi bi-arrow-down-left"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h2>Adicionar Receita</h2>
+
+                            <p>
+                                Registre uma nova entrada.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form id="formReceita">
+
+
+                        <!-- DESCRIÇÃO -->
+
+                        <label for="descricaoReceita">
+                            Descrição
+                        </label>
+
+                        <div class="input-container">
+
+                            <i class="bi bi-pencil input-icon"></i>
+
+                            <input
+                                type="text"
+                                id="descricaoReceita"
+                                placeholder="Ex: Salário, Freelance..."
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- VALOR -->
+
+                        <label for="valorReceita">
+                            Valor
+                        </label>
+
+                        <div class="input-container">
+
+                            <i class="bi bi-currency-dollar input-icon"></i>
+
+                            <input
+                                type="number"
+                                id="valorReceita"
+                                placeholder="0,00"
+                                step="0.01"
+                                min="0"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- CATEGORIA -->
+
+                        <label>
+                            Categoria
+                        </label>
+
+                        <div class="dropdown">
+
+                            <button
+                                type="button"
+                                class="dropdown-button"
+                                onclick="toggleDropdown(event, this)"
+                            >
+
+                                <span class="selectedOption" data-categoria="Salário">
+                                    <span class="category-icon purple">💼</span>
+                                    <span>Salário</span>
+                                </span>
+
+                                <span class="arrow">
+                                    <i class="bi bi-chevron-down"></i>
+                                </span>
+
+                            </button>
+
+
+                            <div class="dropdown-list">
+
+
+                                <div
+                                    class="dropdown-item"
+                                    data-categoria="Salário"
+                                    onclick="selectOption(event, this)"
+                                >
+
+                                    <span class="category-icon purple">
+                                        💼
+                                    </span>
+
+                                    Salário
+
+                                </div>
+
+
+                                <div
+                                    class="dropdown-item"
+                                    data-categoria="Investimento"
+                                    onclick="selectOption(event, this)"
+                                >
+
+                                    <span class="category-icon blue">
+                                        📈
+                                    </span>
+
+                                    Investimento
+
+                                </div>
+
+
+                                <div
+                                    class="dropdown-item"
+                                    data-categoria="Pix"
+                                    onclick="selectOption(event, this)"
+                                >
+
+                                    <span class="category-icon purple">
+                                        💠
+                                    </span>
+
+                                    Pix
+
+                                </div>
+
+
+                                <div
+                                    class="dropdown-item"
+                                    data-categoria="Outros"
+                                    onclick="selectOption(event, this)"
+                                >
+
+                                    <span class="category-icon green">
+                                        •••
+                                    </span>
+
+                                    Outros
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BOTÃO -->
+
+                        <button
+                            type="submit"
+                            class="btn-salvar receita-btn"
+                        >
+
+                            <i class="bi bi-check-lg"></i>
+
+                            Salvar Receita
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MODAL NOVA DESPESA
+            ================================================== -->
+
+            <div
+                class="modal"
+                id="modalDespesa"
+            >
+
+                <div class="modal-content">
+
+                    <button
+                        class="modal-fechar"
+                        onclick="hideModal('modalDespesa')"
+                    >
+                        &times;
+                    </button>
+
+
+                    <div class="modal-header">
+
+                        <div class="modal-icon despesa-icon">
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h2>Adicionar Despesa</h2>
+
+                            <p>
+                                Registre uma nova saída.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form id="formDespesa">
+
+
+                        <!-- DESCRIÇÃO -->
+
+                        <label for="descricaoDespesa">
+                            Descrição
+                        </label>
+
+                        <div class="input-container">
+
+                            <i class="bi bi-pencil input-icon"></i>
+
+                            <input
+                                type="text"
+                                id="descricaoDespesa"
+                                placeholder="Ex: Mercado, Compras..."
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- VALOR -->
+
+                        <label for="valorDespesa">
+                            Valor
+                        </label>
+
+                        <div class="input-container">
+
+                            <i class="bi bi-currency-dollar input-icon"></i>
+
+                            <input
+                                type="number"
+                                id="valorDespesa"
+                                placeholder="0,00"
+                                step="0.01"
+                                min="0"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- CATEGORIA -->
+
+                        <label>
+                            Categoria
+                        </label>
+
+                        <div class="dropdown">
+
+                            <button
+                                type="button"
+                                class="dropdown-button"
+                                onclick="toggleDropdown(event, this)"
+                            >
+
+                                <span class="selectedOption" data-categoria="Compras">
+                                    <span class="category-icon purple">🛒</span>
+                                    <span>Compras</span>
+                                </span>
+
+                                <span class="arrow">
+                                    <i class="bi bi-chevron-down"></i>
+                                </span>
+
+                            </button>
+
+
+                            <div class="dropdown-list">
+
+
+                                <div
+                                    class="dropdown-item"
+                                    data-categoria="Compras"
+                                    onclick="selectOption(event, this)"
+                                >
+
+                                    <span class="category-icon purple">
+                                        🛒
+                                    </span>
+
+                                    Compras
+
+                                </div>
+
+
+                                <div
+                                    class="dropdown-item"
+                                    data-categoria="Casa"
+                                    onclick="selectOption(event, this)"
+                                >
+
+                                    <span class="category-icon blue">
+                                        🏠
+                                    </span>
+
+                                    Casa
+
+                                </div>
+
+
+                                <div
+                                    class="dropdown-item"
+                                    data-categoria="Alimentação"
+                                    onclick="selectOption(event, this)"
+                                >
+
+                                    <span class="category-icon purple">
+                                        🍽️
+                                    </span>
+
+                                    Alimentação
+
+                                </div>
+
+
+                                <div
+                                    class="dropdown-item"
+                                    data-categoria="Outros"
+                                    onclick="selectOption(event, this)"
+                                >
+
+                                    <span class="category-icon green">
+                                        •••
+                                    </span>
+
+                                    Outros
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BOTÃO -->
+
+                        <button
+                            type="submit"
+                            class="btn-salvar despesa-btn"
+                        >
+
+                            <i class="bi bi-check-lg"></i>
+
+                            Salvar Despesa
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 HOME
+            ================================================== -->
+
+            <li class="item-menu ativo">
+
+                <a href="#">
+
+                    <span class="icon">
+
+                        <i class="bi bi-house"></i>
+
+                    </span>
+
+                    <span class="txt-link">
+                        Home
+                    </span>
+
+                </a>
+
+            </li>
+
+
+
+            <!-- =================================================
+                 CONTAS
+            ================================================== -->
+
+            <li class="item-menu">
+
+                <a href="../contas/contas.html">
+
+                    <span class="icon">
+
+                        <i class="bi bi-bank"></i>
+
+                    </span>
+
+                    <span class="txt-link">
+                        Contas
+                    </span>
+
+                </a>
+
+            </li>
+
+
+
+            <!-- =================================================
+                 PLANEJAMENTO
+            ================================================== -->
+
+            <li class="item-menu">
+
+                <a href="../planejamento/planejamento.html">
+
+                    <span class="icon">
+
+                        <i class="bi bi-graph-up-arrow"></i>
+
+                    </span>
+
+                    <span class="txt-link">
+                        Planejamento
+                    </span>
+
+                </a>
+
+            </li>
+
+
+
+            <!-- =================================================
+                 GUIA FINANCEIRO
+            ================================================== -->
+
+            <li class="item-menu">
+
+                <a href="../guiaFinanceiro/guiaFinanceiro.html">
+
+                    <span class="icon">
+
+                        <i class="bi bi-book"></i>
+
+                    </span>
+
+                    <span class="txt-link">
+                        Guia Financeiro
+                    </span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="dashboard">
+
+
+        <!-- =================================================
+             BANNER
+        ================================================== -->
+
+        <section class="hero-dashboard">
+
+            <div class="hero-texto">
+
+                <span class="hero-tag">
+
+                    <i class="bi bi-stars"></i>
+
+                    Seu controle financeiro
+
+                </span>
+
+
+                <h1>
+                    Olá! 👋
+                </h1>
+
+
+                <p>
+                    Acompanhe suas finanças, organize seus gastos
+                    e fique mais perto dos seus objetivos.
+                </p>
+
+            </div>
+
+
+            <div class="hero-icon">
+
+                <i class="bi bi-wallet2"></i>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CABEÇALHO
+        ================================================== -->
+
+        <div class="dashboard-top">
+
+
+            <div>
+
+                <h2>
+                    Visão geral
+                </h2>
+
+                <p>
+                    Confira como estão suas finanças no período selecionado.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CALENDÁRIO
+            ================================================== -->
+
+            <div class="calendario">
+
+                <button
+                    id="btnMes"
+                    class="btn-dropdown"
+                ></button>
+
+
+                <div
+                    class="meses"
+                    id="meses"
+                ></div>
+
+
+                <div class="acoes">
+
+                    <button
+                        class="btn"
+                        id="btnCancelar"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        class="btn"
+                        id="btnAtual"
+                    >
+                        Mês Atual
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CARDS DE RESUMO
+        ================================================== -->
+
+        <section class="resumo">
+
+
+            <!-- SALDO -->
+
+            <div class="card card-saldo">
+
+                <div class="card-topo">
+
+                    <div class="card-icone">
+
+                        <i class="bi bi-wallet2"></i>
+
+                    </div>
+
+                    <span class="card-label">
+                        Saldo atual
+                    </span>
+
+                </div>
+
+
+                <p id="saldoAtual">
+                    R$ 0,00
+                </p>
+
+
+                <small>
+
+                    <i class="bi bi-info-circle"></i>
+
+                    Resultado do período
+
+                </small>
+
+            </div>
+
+
+
+            <!-- RECEITAS -->
+
+            <div class="card card-receita">
+
+                <div class="card-topo">
+
+                    <div class="card-icone">
+
+                        <i class="bi bi-arrow-down-left"></i>
+
+                    </div>
+
+                    <span class="card-label">
+                        Receitas
+                    </span>
+
+                </div>
+
+
+                <p id="totalReceitas">
+                    R$ 0,00
+                </p>
+
+
+                <small>
+
+                    <i class="bi bi-graph-up"></i>
+
+                    Entradas no período
+
+                </small>
+
+            </div>
+
+
+
+            <!-- DESPESAS -->
+
+            <div class="card card-despesa">
+
+                <div class="card-topo">
+
+                    <div class="card-icone">
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </div>
+
+                    <span class="card-label">
+                        Despesas
+                    </span>
+
+                </div>
+
+
+                <p id="totalDespesas">
+                    R$ 0,00
+                </p>
+
+
+                <small>
+
+                    <i class="bi bi-graph-down"></i>
+
+                    Saídas no período
+
+                </small>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             AÇÕES RÁPIDAS
+        ================================================== -->
+
+        <section class="acoes-rapidas">
+
+
+            <div class="titulo-secao">
+
+                <div>
+
+                    <h2>
+                        Ações rápidas
+                    </h2>
+
+                    <p>
+                        Registre e acompanhe suas movimentações.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="acoes-grid">
+
+
+                <!-- ADICIONAR -->
+
+                <button
+                    class="acao-card"
+                    onclick="showModal()"
+                >
+
+                    <span class="acao-icone">
+
+                        <i class="bi bi-plus-lg"></i>
+
+                    </span>
+
+
+                    <span>
+
+                        <strong>
+                            Adicionar movimentação
+                        </strong>
+
+                        <small>
+                            Receita ou despesa
+                        </small>
+
+                    </span>
+
+
+                    <i class="bi bi-chevron-right"></i>
+
+                </button>
+
+
+
+                <!-- CONTAS -->
+
+                <a
+                    href="../contas/contas.html"
+                    class="acao-card"
+                >
+
+                    <span class="acao-icone">
+
+                        <i class="bi bi-pie-chart"></i>
+
+                    </span>
+
+
+                    <span>
+
+                        <strong>
+                            Analisar gastos
+                        </strong>
+
+                        <small>
+                            Veja para onde seu dinheiro foi
+                        </small>
+
+                    </span>
+
+
+                    <i class="bi bi-chevron-right"></i>
+
+                </a>
+
+
+
+                <!-- PLANEJAMENTO -->
+
+                <a
+                    href="../planejamento/planejamento.html"
+                    class="acao-card"
+                >
+
+                    <span class="acao-icone">
+
+                        <i class="bi bi-graph-up-arrow"></i>
+
+                    </span>
+
+
+                    <span>
+
+                        <strong>
+                            Planejar finanças
+                        </strong>
+
+                        <small>
+                            Acompanhe sua evolução
+                        </small>
+
+                    </span>
+
+
+                    <i class="bi bi-chevron-right"></i>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             GRÁFICO
+        ================================================== -->
+
+        <section class="grafico-container">
+
+
+            <div class="grafico-cabecalho">
+
+                <div>
+
+                    <h2>
+                        Receitas x Despesas
+                    </h2>
+
+                    <p>
+                        Visualize a distribuição das suas movimentações.
+                    </p>
+
+                </div>
+
+
+                <div class="grafico-badge">
+
+                    <i class="bi bi-bar-chart-fill"></i>
+
+                    Visão mensal
+
+                </div>
+
+            </div>
+
+
+            <div class="grafico-pizza">
+
+                <canvas
+                    id="graficoDespesas"
+                ></canvas>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+
+    <script src="menu.js"></script>
+
+    <script src="calendario.js"></script>
+
+    <script src="dropdown.js"></script>
+
+    <script src="financeiro.js"></script>
+
+    <script src="atualizarresumo.js"></script>
+
+    <script src="adicionar_receita.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="graficos.js"></script>
+
+
+</body>
+
+</html>
